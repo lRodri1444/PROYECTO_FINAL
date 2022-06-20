@@ -1,0 +1,15 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+div#left{
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+form#left{
+    margin-left: 5px;
+    margin-top: 5px;
+}
