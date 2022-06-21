@@ -1,0 +1,16 @@
+{% extends 'users/users_base.html' %}
+{% block title %} Register {% endblock title %}
+{% block content %}
+        {% if user.is_authenticated %}
+        <script>
+            window.location.href = "{% url 'my-home' %}" 
+        </script>
+        {% else %}
+        <form id="left" method="POST">
+            {% csrf_token %}
+            Start blogging now! <br><br>
+            {{ registration_form.as_p }}
+            <button type="submit" name="register" class="btn btn-primary">Register</button>
+        </form>
+        {% endif %}
+{% endblock content %}

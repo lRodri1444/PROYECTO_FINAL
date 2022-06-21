@@ -1,0 +1,24 @@
+{% extends 'users/users_base.html' %}
+{% load static %}
+{% block title %} Login {% endblock title %}
+{% block content %}
+    {% if user.is_authenticated %}
+    <script>
+        window.location.href = "{% url 'my-home' %}" 
+    </script>
+    {% else %}
+    <div>
+        <img id="master" src="{% static 'images/main_image.jpg' %}" >
+    </div>
+
+    <div id="moreleft">
+        <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button id="loginbutton" type="submit" class="btn btn-primary">Login</button>
+            <p>Don't have an account? Create one <a href="{% url 'user-registration' %}">here</a></p>
+        </form>
+    </div>
+    {% endif %}
+{% endblock content %}
+

@@ -1,0 +1,22 @@
+div#moreleft{
+    margin-left: 862px;
+    margin-top: -440px;
+}
+
+img#master{
+    display: block;
+    margin-left: -29px;
+    margin-top: -8px;
+    margin-right: auto;
+    width: 50%;
+    height: 665px;
+}
+
+button#loginbutton{
+    margin-left: 251px;    
+}
+
+form#left{
+    margin-left: 5px;
+    margin-top: 5px;
+}
