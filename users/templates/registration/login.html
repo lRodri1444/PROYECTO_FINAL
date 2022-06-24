@@ -2,6 +2,8 @@
 {% load static %}
 {% block title %} Login {% endblock title %}
 {% block content %}
+
+<form method="POST">
     {% if user.is_authenticated %}
     <script>
         window.location.href = "{% url 'my-home' %}" 

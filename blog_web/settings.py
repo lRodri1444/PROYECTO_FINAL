@@ -127,6 +127,10 @@ LOGOUT_REDIRECT_URL = '/login/'
 
 LOGIN_URL = '/login/'
 
+MEDIA_ROOT = (
+    os.path.join(BASE_DIR,'static/images')
+)
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'main_app/static'),
 )

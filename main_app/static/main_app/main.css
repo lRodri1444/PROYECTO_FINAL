@@ -13,3 +13,17 @@ form#left{
     margin-left: 5px;
     margin-top: 5px;
 }
+
+.dropdown-item-custom{
+    height: 30px;
+}
+
+img#profile-button{
+    margin-left: 15px;
+    margin-top: -5px;
+}
+
+img#navavatar{
+    margin-left: 5px;
+    margin-top: -5px;
+}

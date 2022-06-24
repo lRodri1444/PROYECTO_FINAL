@@ -1,0 +1,10 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block title %} Your Profile {% endblock title %}
+{% block content %}
+
+    This is the profile
+    <a href="/home/edit/"><button class="btn btn-success">Edit Authentication Data</button></a>
+    <a href="/home/extra_edit/"><button class="btn btn-success">Edit Profile Data</button></a>
+
+{% endblock content %}

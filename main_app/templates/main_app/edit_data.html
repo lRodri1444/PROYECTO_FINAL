@@ -1,0 +1,10 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block title %} Edit Profile {% endblock title %}
+{% block content %}
+        <form id="left" method="POST">
+            {% csrf_token %}
+            {{edit_form.as_p}}
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+{% endblock content %}

@@ -1,0 +1,10 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block title %} Edit {% endblock title %}
+{% block content %}
+        <form id="left" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{extra_edit_form.as_p}}
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+{% endblock content %}
