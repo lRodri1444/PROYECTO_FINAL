@@ -1,0 +1,18 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block title %} Home {% endblock title %}
+{% block content %}
+
+<div id="left">
+    <div id="left">
+        <form method="POST">
+            {% csrf_token %}
+            Your post will be updated! <br><br>
+            {{post_form.media}}
+            {{post_form.as_p}}
+            <button type="submit" class="btn btn-dark">Update Post</button><br> <br>
+        </form>           
+    </div>
+</div>
+
+{% endblock content %}

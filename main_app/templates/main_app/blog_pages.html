@@ -1,0 +1,21 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block title %} Home {% endblock title %}
+{% block content %}
+
+<div id="blogpages">
+  <div class="card text-center">
+  <div class="card-header">
+      {{posts.posted_date}} Hola
+  </div>
+  <div class="card-body">
+      <h5 class="card-title">{{posts.title}}</h5>
+      <p class="card-text">{{posts.body|safe}}</p>
+  </div>
+  <div class="card-footer text-muted">
+      {{posts.user}} 
+  </div>
+  </div>
+</div> <br> <br> <br>
+
+{% endblock content %}

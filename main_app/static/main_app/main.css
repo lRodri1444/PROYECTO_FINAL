@@ -6,12 +6,17 @@
 
 div#left{
     margin-left: 5px;
-    margin-top: 5px;
+    margin-top: 65px;
+}
+
+div#profileleft{
+    margin-left: 260px;
+    margin-top: 20px;
 }
 
 form#left{
     margin-left: 5px;
-    margin-top: 5px;
+    margin-top: 65px;
 }
 
 .dropdown-item-custom{
@@ -26,4 +31,49 @@ img#profile-button{
 img#navavatar{
     margin-left: 5px;
     margin-top: -5px;
+}
+
+img#exitbutton{
+    margin-left: 11px;
+    margin-top: 5px;
+}
+
+div#profilecard{
+    margin-left: 0px;
+    height: 657px;
+}
+
+div#secondprofilecard{
+    margin-left: 250px;
+    height: 900px;
+}
+
+div#homeposts{
+    width: 1000px;
+    margin-left: 170px;
+}
+
+div#blogpages{
+    width: 1000px;
+    margin-left: 170px;
+    margin-top: 60px;
+
+}
+
+h2#yourposts{
+    margin-left: 720px;
+    margin-top: 5px;
+}
+
+li#postli{
+    margin-top: 8px;
+    margin-left: 785px;
+}
+
+div#profilecardheader{
+    height: 55px
+}
+
+ul#ulprof{
+    margin-top: -6px;
 }

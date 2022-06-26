@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main_app.apps.MainAppConfig',
     'users.apps.UsersConfig',
+    'ckeditor'
 ]
 
 MIDDLEWARE = [
@@ -120,20 +121,21 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = BASE_DIR / 'static/root'
+
 MEDIA_URL = '/images/'
-
-LOGIN_REDIRECT_URL = '/home/'
-LOGOUT_REDIRECT_URL = '/login/'
-
-LOGIN_URL = '/login/'
 
 MEDIA_ROOT = (
     os.path.join(BASE_DIR,'static/images')
 )
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'main_app/static'),
+    os.path.join(BASE_DIR, 'static'),
 )
+
+LOGIN_REDIRECT_URL = '/home/'
+LOGOUT_REDIRECT_URL = '/login/'
+LOGIN_URL = '/login/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

@@ -3,8 +3,55 @@
 {% block title %} Your Profile {% endblock title %}
 {% block content %}
 
-    This is the profile
-    <a href="/home/edit/"><button class="btn btn-success">Edit Authentication Data</button></a>
-    <a href="/home/extra_edit/"><button class="btn btn-success">Edit Profile Data</button></a>
+    <div id="profilecard" class="card position-fixed" style="width: 16rem;">
+        <img class="card-img-top" src="{{request.user.user_object.profile_pic.url}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{request.user.username}}</h5>
+          <div class="card">
+            <div class="card-body">
+              {{request.user.user_object.bio}}
+            </div>
+          </div><br>
+          <a href="/home/edit/"><button class="btn btn-success">Edit Authentication Data</button></a><br><br>
+          <a href="/home/extra_edit/"><button class="btn btn-success">Edit Profile Data</button></a>
+        </div>
+    </div><br> 
+    <img src="{% static 'images/exit.png' %}" class="rounded-circle" width="35" height="35">
+
+    <h2 id="yourposts">Your posts</h2>
+    <div id="profileleft">
+      {% for i in posts %}
+      <div class="card text-center">
+        <div id="profilecardheader" class="card-header">
+          <ul id="ulprof" class="nav nav-pills card-header-pills">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                Options
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item dropdown-item-custom" href="{% url 'update-page' i.id %}">Update</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'delete-page' i.id %}">Delete</a>
+              </div>
+            </li>
+            <li id="postli">
+              <p>{{i.posted_date}}</p>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{i.title}}</h5>
+          <p class="card-text">{{i.body|safe}}</p>
+        </div>
+        <div class="card-footer text-muted">
+          <p>{{i.user}} </p> 
+          <a href="{% url 'blog-pages' i.id %}" class="btn btn-primary" id="readmorebutton">Read more</a>
+        </div>
+      </div>
+         <br>
+         <br>
+        
+      {% endfor %}
+    </div>
 
 {% endblock content %}
