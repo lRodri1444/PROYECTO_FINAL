@@ -4,15 +4,15 @@
 {% block content %}
 
 <div id="left">
-    <form method="POST">
+    <form id="homeform" method="POST">
         {% csrf_token %}
-       <h2>Start blogging right here!</h2>  <br>
+       <h2 id="bigt">Start blogging right here!</h2>  <br>
         {{NewPost.media}}
         {{NewPost.as_p}}
-        <button type="submit" class="btn btn-dark">Publish</button><br> <br>
+        <button id="homepublish" type="submit" class="btn btn-dark">Publish</button><br> <br>
     </form>
 </div>
-        <h2>This is what everyone is talking about!</h2> <br>
+        <h2 id="bigtwo">This is what everyone is talking about!</h2> <br>
         {% for i in posts %}
             <div id="homeposts">
                 <div class="card text-center">
@@ -24,7 +24,7 @@
                     <p class="card-text">{{i.body|safe}}</p>
                 </div>
                 <div class="card-footer text-muted">
-                    {{i.user}} 
+                    <a href="{% url 'profiles-list' i.user.id %}">{{i.user}}</a>
                 </div>
                 </div>
             </div> <br> <br> <br>

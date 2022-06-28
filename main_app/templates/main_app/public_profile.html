@@ -1,0 +1,41 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block title %} Your Profile {% endblock title %}
+{% block content %}
+    <div id="profilecard" class="card position-fixed" style="width: 16rem;">
+        <img class="card-img-top" src="{{profile_owner.user_object.profile_pic.url}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{profile_owner.username}}</h5>
+          <div class="card">
+            <div class="card-body">
+              {{profile_owner.user_object.bio}}
+            </div>
+          </div><br>
+        </div>
+    </div><br> 
+    <div id="publicprofileleft">
+        <h2>{{profile_owner.username}} Posts</h2>
+    </div>
+{% for i in posts %}
+    <div id="profileleft">
+      <div class="card text-center">
+        <div id="profilecardheader" class="card-header">
+          <ul id="ulprof" class="nav nav-pills card-header-pills">
+            <li id="publicpostli">
+              <p>{{i.posted_date}}</p>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{i.title}}</h5>
+          <p class="card-text">{{i.body|safe}}</p>
+        </div>
+        <div class="card-footer text-muted">
+          <p>{{i.user}}</p> 
+          <a href="#" class="btn btn-primary" id="readmorebutton">Read more</a>
+        </div>
+      </div>
+         <br>
+    </div>
+{% endfor %}
+{% endblock content %}

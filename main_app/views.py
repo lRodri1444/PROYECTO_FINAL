@@ -4,10 +4,11 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from users.forms import RegisterForm, UserObjectForm
+from django.http import Http404
 
 @login_required
 def my_home(request):
-    posts = new_post.objects.all()
+    posts = new_post.objects.all().order_by('-posted_date')
     post = NewPost()
     if request.method == 'POST':
         post = NewPost(request.POST)
@@ -69,6 +70,9 @@ def update_page(request, post_id):
     posts = new_post.objects.all()
     posts = posts.get(id=post_id)
 
+    if posts.user.id != request.user.id:
+        return redirect('/')
+
     post_form = NewPost(instance=posts)
 
     if request.method == 'POST':
@@ -85,5 +89,23 @@ def update_page(request, post_id):
 def delete_page(request, post_id):
     post_to_delete = new_post.objects.all()
     post_to_delete = post_to_delete.get(id=post_id)
-    post_to_delete.delete()
+    try:
+        if post_to_delete.user.id == request.user.id:
+            post_to_delete.delete()
+    except:
+        raise Http404() 
+
     return redirect('/home/profile/')
+
+def profiles_list(request, profile_id):
+    profile_owner = User.objects.get(id = profile_id)
+    profile_posts = new_post.objects.filter(user_id = profile_owner.id).order_by('-posted_date')
+
+    if profile_owner.id == request.user.id:
+        return redirect('/home/profile/')
+
+    context = {
+        'profile_owner':profile_owner,
+        'posts':profile_posts
+    }
+    return render(request, 'main_app/public_profile.html', context)
