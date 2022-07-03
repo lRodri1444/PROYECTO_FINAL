@@ -1,5 +1,6 @@
 PROYECTO FINAL - BLOG
 ----------------------
+Autor (Único miembro): Luis Felipe Rodriguez Carrasco
 
 Rutas : Todas las rutas tienen botones configurados.
 ----------------------
