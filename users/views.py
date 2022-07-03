@@ -20,4 +20,5 @@ def user_registration(request):
 def LoginView(request):
     return HttpResponseRedirect(reverse('login'))
 
-
+def about_page(request):
+    return render(request, 'users/about_me.html')

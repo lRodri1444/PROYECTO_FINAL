@@ -1,6 +1,6 @@
 {% extends 'main_app/base.html' %}
 {% load static %}
-{% block title %} Your Profile {% endblock title %}
+{% block title %} {{profile_owner.username}} Profile {% endblock title %}
 {% block content %}
     <div id="profilecard" class="card position-fixed" style="width: 16rem;">
         <img class="card-img-top" src="{{profile_owner.user_object.profile_pic.url}}" alt="Card image cap">
@@ -28,11 +28,13 @@
         </div>
         <div class="card-body">
           <h5 class="card-title">{{i.title}}</h5>
-          <p class="card-text">{{i.body|safe}}</p>
+          <p class="card-text">{{i.body|safe|truncatewords:50}}</p>
         </div>
         <div class="card-footer text-muted">
           <p>{{i.user}}</p> 
-          <a href="#" class="btn btn-primary" id="readmorebutton">Read more</a>
+          <div id="profilesreadmore">
+            <a href="{% url 'blog-pages' i.id %}" class="btn btn-primary" id="profilesreadmorebutton"><p id="preadmp">Read more</p></a>
+          </div>
         </div>
       </div>
          <br>

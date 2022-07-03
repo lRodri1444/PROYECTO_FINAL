@@ -13,7 +13,17 @@
             </div>
           </div><br>
           <a href="/home/edit/"><button class="btn btn-success">Edit Authentication Data</button></a><br><br>
-          <a href="/home/extra_edit/"><button class="btn btn-success">Edit Profile Data</button></a>
+          <a href="/home/extra_edit/"><button class="btn btn-success">Edit Profile Data</button></a> <br> <br>
+            {% if messages %}
+              <ul class="messages">
+                {% for message in messages %}
+                  <div id="postsucc" class="alert alert-info">
+                    <button id="pmcl" type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{message}}
+                  </div>
+                {% endfor %}
+              </ul>
+            {% endif %}
         </div>
     </div><br> 
     <img src="{% static 'images/exit.png' %}" class="rounded-circle" width="35" height="35">
@@ -45,7 +55,6 @@
         </div>
         <div class="card-footer text-muted">
           <p>{{i.user}} </p> 
-          <a href="{% url 'blog-pages' i.id %}" class="btn btn-primary" id="readmorebutton">Read more</a>
         </div>
       </div>
          <br>

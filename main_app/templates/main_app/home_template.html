@@ -10,6 +10,15 @@
         {{NewPost.media}}
         {{NewPost.as_p}}
         <button id="homepublish" type="submit" class="btn btn-dark">Publish</button><br> <br>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <div id="postsucc" class="alert alert-success">
+                    {{message}}
+                </div>
+            {% endfor %}
+        </ul>
+        {% endif %}
     </form>
 </div>
         <h2 id="bigtwo">This is what everyone is talking about!</h2> <br>
@@ -21,13 +30,16 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">{{i.title}}</h5>
-                    <p class="card-text">{{i.body|safe}}</p>
+                    <p class="card-text">{{i.body|safe|truncatewords:50}}</p>
                 </div>
                 <div class="card-footer text-muted">
-                    <a href="{% url 'profiles-list' i.user.id %}">{{i.user}}</a>
+                    <a href="{% url 'profiles-list' i.user.id %}">{{i.user}}<img id="objphotohome" src="{{i.user.user_object.profile_pic.url}}" height="30" width="30" class="rounded-circle"></a>
+                    <div id="homereadmore">
+                        <a id="homereadmorebutton" href="{% url 'blog-pages' i.id %}" class="btn btn-primary"><p id="preadm">Read more</p></a>
+                    </div>
                 </div>
                 </div>
             </div> <br> <br> <br>
-            {% endfor %}
+        {% endfor %}
 
 {% endblock content %}

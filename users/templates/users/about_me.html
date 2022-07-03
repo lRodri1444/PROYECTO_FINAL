@@ -1,0 +1,28 @@
+{% extends 'users/users_base.html' %}
+{% load static %}
+{% block title %} About {% endblock title %}
+{% block content %}
+
+<div class="container bootstrap snippets bootdey">
+    <div class="profile card">
+        <div class="profile-body">
+            <div class="profile-bio">
+                <div class="row">
+                    <div class="col-md-5 text-center">
+                        <img class="img-thumbnail md-margin-bottom-10" src="{% static 'images/my_photo.jpg' %}" alt="">
+                    </div>
+                    <div class="col-md-7">
+                        <h2>Luis Rodriguez</h2>
+                        <span><strong>Estado:</strong> Estudiante</span>
+                        <span><strong>Carrera:</strong> Programación </span>
+                        <hr>
+                        <p>Mi nombre es Luis Rodriguez, creador de este blog. Soy de Perú y tengo 19 años. Soy antiguo estudiante de la carrera de Ingeniería Industrial pero ahora sueño con convertirme en programador.</p>
+                        <p>Empezé con el programa de Python de Coderhouse gracias a la recomendación de un amigo y hoy presento este proyecto final desarrollado en Python con el framework de Django.</p>
+                        <p>A partir de ahora espero seguir afiando mis conocimientos con otros lenguajes de programación mientras me preparo para cumplir mi meta de estudiar en el extranjero.</p>
+                    </div>
+                </div>    
+            </div>
+    	</div>
+    </div>
+</div>                                       
+{% endblock %}

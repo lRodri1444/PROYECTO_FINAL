@@ -41,8 +41,18 @@ style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/
               <div class="d-flex justify-content-center">
                 <button type="submit"
                   class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
-              </div>
+              </div> <br>
 
+              {% if registration_form.errors %}
+              <div class="alert alert-warning">
+                  {% for field in registration_form %}
+                    {% for error in field.errors %}
+                      {{error}}
+                    {% endfor %}
+                  {% endfor %}
+              </div>
+              {% endif %}
+              
               <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="{% url 'login' %}"
                   class="fw-bold text-body"><u>Login here</u></a></p>
 
